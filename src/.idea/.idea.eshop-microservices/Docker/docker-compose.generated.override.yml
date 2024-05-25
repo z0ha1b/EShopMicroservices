@@ -38,3 +38,21 @@ services:
     - "C:\\GitHub\\EShopMicroservices\\src\\Services\\Catalog\\Catalog.API:/app:rw"
     - "C:\\GitHub\\EShopMicroservices\\src:/src:rw"
     working_dir: "/app"
+  discount.grpc:
+    build:
+      context: "C:\\GitHub\\EShopMicroservices\\src"
+      dockerfile: "Services/Discount/Discount.Grpc/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Discount.Grpc.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "discountgrpc:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\mrzoh\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\GitHub\\EShopMicroservices\\src\\Services\\Discount\\Discount.Grpc:/app:rw"
+    - "C:\\GitHub\\EShopMicroservices\\src:/src:rw"
+    working_dir: "/app"
