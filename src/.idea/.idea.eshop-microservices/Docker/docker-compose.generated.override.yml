@@ -15,6 +15,7 @@ services:
     image: "catalogapi:dev"
     ports: []
     volumes:
+    - "C:\\Users\\mrzoh\\AppData\\Roaming\\Microsoft\\UserSecrets:/home/app/.microsoft/usersecrets"
     - "C:\\Users\\mrzoh\\.nuget\\packages:/home/app/.nuget/packages"
     - "C:\\GitHub\\EShopMicroservices\\src\\Services\\Catalog\\Catalog.API:/app:rw"
     - "C:\\GitHub\\EShopMicroservices\\src:/src:rw"
