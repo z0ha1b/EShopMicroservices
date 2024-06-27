@@ -6,53 +6,101 @@ services:
       context: "C:\\GitHub\\EShopMicroservices\\src"
       dockerfile: "Services/Basket/Basket.API/Dockerfile"
       target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
     command: []
     entrypoint:
-    - "dotnet"
-    - "/app/bin/Debug/net8.0/Basket.API.dll"
+    - "/opt/rider-debugger/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
     environment:
       DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
     image: "basketapi:dev"
-    ports: []
+    ports:
+    - "127.0.0.1:57000:57100"
+    - "127.0.0.1:57200:57300"
     volumes:
     - "C:\\Users\\mrzoh\\.nuget\\packages:/home/app/.nuget/packages"
     - "C:\\GitHub\\EShopMicroservices\\src\\Services\\Basket\\Basket.API:/app:rw"
     - "C:\\GitHub\\EShopMicroservices\\src:/src:rw"
+    - "C:\\Users\\mrzoh\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2024.1\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2023.3.3\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\mrzoh\\AppData\\Local\\JetBrains\\Rider2024.1\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2024_6_16_01_35_10:/var/opt/rider-debugger:rw"
     working_dir: "/app"
   catalog.api:
     build:
       context: "C:\\GitHub\\EShopMicroservices\\src"
       dockerfile: "Services/Catalog/Catalog.API/Dockerfile"
       target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
     command: []
     entrypoint:
-    - "dotnet"
-    - "/app/bin/Debug/net8.0/Catalog.API.dll"
+    - "/opt/rider-debugger/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
     environment:
       DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
     image: "catalogapi:dev"
-    ports: []
+    ports:
+    - "127.0.0.1:57001:57100"
+    - "127.0.0.1:57201:57300"
     volumes:
     - "C:\\Users\\mrzoh\\AppData\\Roaming\\Microsoft\\UserSecrets:/home/app/.microsoft/usersecrets"
     - "C:\\Users\\mrzoh\\.nuget\\packages:/home/app/.nuget/packages"
     - "C:\\GitHub\\EShopMicroservices\\src\\Services\\Catalog\\Catalog.API:/app:rw"
     - "C:\\GitHub\\EShopMicroservices\\src:/src:rw"
+    - "C:\\Users\\mrzoh\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2024.1\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2023.3.3\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\mrzoh\\AppData\\Local\\JetBrains\\Rider2024.1\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2024_6_16_01_35_10:/var/opt/rider-debugger:rw"
     working_dir: "/app"
   discount.grpc:
     build:
       context: "C:\\GitHub\\EShopMicroservices\\src"
       dockerfile: "Services/Discount/Discount.Grpc/Dockerfile"
       target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
     command: []
     entrypoint:
-    - "dotnet"
-    - "/app/bin/Debug/net8.0/Discount.Grpc.dll"
+    - "/opt/rider-debugger/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
     environment:
       DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
     image: "discountgrpc:dev"
-    ports: []
+    ports:
+    - "127.0.0.1:57002:57100"
+    - "127.0.0.1:57202:57300"
     volumes:
     - "C:\\Users\\mrzoh\\.nuget\\packages:/home/app/.nuget/packages"
     - "C:\\GitHub\\EShopMicroservices\\src\\Services\\Discount\\Discount.Grpc:/app:rw"
     - "C:\\GitHub\\EShopMicroservices\\src:/src:rw"
+    - "C:\\Users\\mrzoh\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2024.1\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2023.3.3\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\mrzoh\\AppData\\Local\\JetBrains\\Rider2024.1\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2024_6_16_01_35_10:/var/opt/rider-debugger:rw"
     working_dir: "/app"
